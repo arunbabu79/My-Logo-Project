@@ -12,8 +12,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import junit.framework.Assert;
 
-public class loginPage_StepDef {
+public class loginPageStepDef {
 	
 	WebDriver driver = null;
 	
@@ -35,27 +36,33 @@ public class loginPage_StepDef {
 	    
 	}
 
+	@SuppressWarnings("deprecation")
 	@Then("validate Sign In page is displayed")
 	public void validate_sign_in_page_is_displayed() {
-	    // Write code here that turns the phrase above into concrete actions
 	    
+	 WebElement btn_signin= driver.findElement(By.cssSelector("button#SubmitLogin"))  ;
+	 Assert.assertTrue(btn_signin.isDisplayed());
 	}
 
 	@When("enter valid user name and password")
 	public void enter_valid_user_name_and_password() {
 	    // Write code here that turns the phrase above into concrete actions
 	    
+		driver.findElement(By.cssSelector("input#email")).sendKeys("arunbabu79@gmail.com");
+		driver.findElement(By.cssSelector("input#passwd")).sendKeys("password");
 	}
 
 	@When("click Sign in button")
 	public void click_sign_in_button() {
 	    // Write code here that turns the phrase above into concrete actions
-	    
+		driver.findElement(By.cssSelector("button#SubmitLogin")).click();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Then("Validate if user home page is displayed")
 	public void validate_if_user_home_page_is_displayed() {
-	    // Write code here that turns the phrase above into concrete actions
+	    WebElement btn_myaccount= driver.findElement(By.cssSelector("div h1.page-heading"));
+	    Assert.assertTrue(btn_myaccount.isDisplayed());
 	    
 	}
 	
