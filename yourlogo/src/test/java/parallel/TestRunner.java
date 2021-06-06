@@ -14,6 +14,7 @@ import io.cucumber.junit.Cucumber;
 				   "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 				    }, //to generate different report types
 		dryRun=false,
+		tags="@smoke",
 		monochrome = true
 		 )
 

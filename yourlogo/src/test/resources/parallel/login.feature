@@ -4,7 +4,7 @@
 Feature: Login Test
   I wan to test login on my automation test page
 
-  @tag2
+  @smoke
   Scenario: Valid Login Test
     Given I navigate to automation practice page
     And I click on Sign In Button

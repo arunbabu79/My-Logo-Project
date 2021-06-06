@@ -8,6 +8,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import Pages.HomePage;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
@@ -19,6 +20,7 @@ import junit.framework.Assert;
 public class loginPageStepDef {
 	
 	WebDriver driver = null;
+	HomePage homePage;
 	
 	@Given("I navigate to automation practice page")
 	public void i_navigate_to_automation_practice_page() {
@@ -32,8 +34,10 @@ public class loginPageStepDef {
 	@Given("I click on Sign In Button")
 	public void i_click_on_sign_in_button() throws InterruptedException {
 	    // Write code here that turns the phrase above into concrete actions
-	    WebElement lnk_Sign_in = driver.findElement(By.cssSelector("a.login"));
-	    lnk_Sign_in.click();  
+	    //WebElement lnk_Sign_in = driver.findElement(By.cssSelector("a.login"));
+	    //lnk_Sign_in.click();  
+		homePage = new HomePage(driver);
+		homePage.clickSignIn();
 	    Thread.sleep(3000);
 	    
 	}
