@@ -3,10 +3,12 @@ package parallel;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import io.cucumber.java.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -48,7 +50,7 @@ public class loginPageStepDef {
 	public void enter_valid_user_name_and_password() {
 	    // Write code here that turns the phrase above into concrete actions
 	    
-		driver.findElement(By.cssSelector("input#email")).sendKeys("arunbabu79@gmail.com");
+		driver.findElement(By.cssSelector("input#email1")).sendKeys("arunbabu79@gmail.com");
 		driver.findElement(By.cssSelector("input#passwd")).sendKeys("password");
 	}
 
@@ -67,7 +69,12 @@ public class loginPageStepDef {
 	}
 	
 	@After
-	public void tearDown() {
+	public void tearDown(Scenario scenario) {
+		if (scenario.isFailed()) {
+			byte[] src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			scenario.log(scenario.getName() + "is failed");
+			scenario.attach(src, "image/png", scenario.getName() + ".png");
+					}		
 		driver.quit();
 	}
 
