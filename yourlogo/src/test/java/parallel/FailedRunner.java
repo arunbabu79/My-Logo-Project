@@ -8,9 +8,10 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
     monochrome = true,
     features = "@target/rerun.txt", //Cucumber picks the failed scenarios from this file 
-    		plugin = {"html:Report/cucumber-html-report-RETRY.html"} //to generate different report types
+    		plugin = {"html:Report/cucumber-html-report-RETRY.html",
+    			"rerun:target/rerun.txt"} //to generate different report types
   )
-public class TestFailedRetryRunner {
+public class FailedRunner {
 
 	
 	
