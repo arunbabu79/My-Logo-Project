@@ -11,7 +11,8 @@ import io.cucumber.junit.Cucumber;
 		 plugin = {"html:Report/cucumber-html-report.html", 
 				   "json:Report/cucumber-json-report.json",
 				   "junit:Report/cucumber-junit-report.xml",
-				   "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+				   "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+				   "rerun:target/rerun.txt"
 				    }, //to generate different report types
 		dryRun=false,
 		tags="@smoke",
