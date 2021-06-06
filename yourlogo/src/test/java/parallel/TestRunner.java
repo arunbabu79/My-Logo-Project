@@ -6,7 +6,7 @@ import io.cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		 features = "/Users/Arun/git/My-Logo-Project/yourlogo/src/test/resources/parallel",
+		 //features = "/src/test/resources/parallel/",
 		 glue={"parallel"},
 		 plugin = {"html:Report/cucumber-html-report.html", 
 				   "json:Report/cucumber-json-report.json",
